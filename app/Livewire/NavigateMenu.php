@@ -40,22 +40,46 @@ class NavigateMenu extends NavigationMenu
                 'role' => 'view-permission',
             ],
             [
-                'name' => 'sources',
-                'value' => 'site.sources',
+                'name' => 'racks',
+                'value' => 'site.racks',
                 'icon' => 'receipt-percent',
-                'role' => 'view-source',
+                'role' => 'view-rack',
             ],
             [
-                'name' => 'projects',
-                'value' => 'site.projects',
+                'name' => 'branchs',
+                'value' => 'site.branchs',
                 'icon' => 'receipt-percent',
-                'role' => 'view-project',
+                'role' => 'view-branch',
             ],
             [
-                'name' => 'statements',
-                'value' => 'site.statements',
+                'name' => 'subnets',
+                'value' => 'site.subnets',
+                'icon' => 'user-group',
+                'role' => 'view-subnet',
+            ],
+            [
+                'name' => 'patchs',
+                'value' => 'site.patchs',
                 'icon' => 'receipt-percent',
-                'role' => 'view-statement',
+                'role' => 'view-patch',
+            ],
+            [
+                'name' => 'switchs',
+                'value' => 'site.switchs',
+                'icon' => 'user-group',
+                'role' => 'view-switch',
+            ],
+            [
+                'name' => 'ips',
+                'value' => 'site.ips',
+                'icon' => 'user-group',
+                'role' => 'view-ip',
+            ],
+            [
+                'name' => 'telephones',
+                'value' => 'site.telephones',
+                'icon' => 'user-group',
+                'role' => 'view-telephone',
             ],
             [
                 'name' => 'backup',
@@ -74,12 +98,6 @@ class NavigateMenu extends NavigationMenu
                 'value' => 'site.users',
                 'icon' => 'user-group',
                 'role' => 'view-user',
-            ],
-            [
-                'name' => 'origins',
-                'value' => 'site.origins',
-                'icon' => 'user-group',
-                'role' => 'view-origin',
             ],
         ];
     }
