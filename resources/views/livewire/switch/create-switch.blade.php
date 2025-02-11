@@ -8,10 +8,16 @@
         <x-slot name="content">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="mt-2">
-                    <x-label for="name" value="{{ __('site.name') }}" />
-                    <x-input type="text" class="mt-1 block w-full" wire:model="name"
-                        placeholder="{{ __('site.name') }}" />
-                    <x-input-error for="name" class="mt-2" />
+                    <x-label for="switch_name_id" value="{{ __('site.switch_name_id') }}" />
+                    <x-select class="mt-1 block w-full" wire:model="switch_name_id">
+                        <option value="">{{ __('site.select_switch_name') }}</option>
+                        @foreach ($this->switchNames() as $switchName)
+                        <option value="{{ $switchName->id }}">
+                            {{ $switchName->name }}
+                        </option>
+                        @endforeach
+                    </x-select>
+                    <x-input-error for="switch_name_id" class="mt-2" />
                 </div>
                 <div class="mt-2">
                     <x-label for="port" value="{{ __('site.port') }}" />

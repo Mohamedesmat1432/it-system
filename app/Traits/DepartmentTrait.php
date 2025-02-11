@@ -35,8 +35,8 @@ trait DepartmentTrait
         Department::create($validated);
         $this->dispatch('refresh-list-department');
         $this->successNotify(__('site.department_created'));
-        $this->create_modal = false;
-        $this->reset();
+       // $this->create_modal = false;
+       $this->reset(['name_ar', 'name_en']);
     }
 
     public function updateDepartment()

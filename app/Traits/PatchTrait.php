@@ -15,7 +15,7 @@ trait PatchTrait
     protected function rules()
     {
         return [
-            'port' => 'required|string|unique:patchs,port,' . $this->patch_id,
+            'port' => 'required|string|unique:patches,port,' . $this->patch_id,
         ];
     }
 
@@ -32,8 +32,8 @@ trait PatchTrait
         Patch::create($validated);
         $this->dispatch('refresh-list-patch');
         $this->successNotify(__('site.patch_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('port');
     }
 
     public function updatePatch()

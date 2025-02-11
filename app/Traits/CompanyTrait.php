@@ -33,8 +33,8 @@ trait CompanyTrait
         Company::create($validated);
         $this->dispatch('refresh-list-company');
         $this->successNotify(__('site.company_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('name');
     }
 
     public function updateCompany()

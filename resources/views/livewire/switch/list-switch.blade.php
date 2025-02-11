@@ -66,10 +66,10 @@
                             </td>
                             <td class="px-4 py-2 border">
                                 <div class="flex justify-center">
-                                    <button wire:click="sortByField('name')">
-                                        {{ __('site.name') }}
+                                    <button wire:click="sortByField('switch_name_id')">
+                                        {{ __('site.switch_name_id') }}
                                     </button>
-                                    <x-sort-icon sort_field="name" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                    <x-sort-icon sort_field="switch_name_id" :sort_by="$sort_by" :sort_asc="$sort_asc" />
                                 </div>
                             </td>
                             <td class="px-4 py-2 border">
@@ -99,7 +99,7 @@
                                     {{ $switch->id }}
                                 </td>
                                 <td class="p-2 border">
-                                    {{ $switch->name }}
+                                    {{ $switch->switchName?->name }}
                                 </td>
                                 <td class="p-2 border">
                                     {{ $switch->port }}

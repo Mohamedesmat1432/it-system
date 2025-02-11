@@ -32,8 +32,8 @@ trait TelephoneTrait
         Telephone::create($validated);
         $this->dispatch('refresh-list-telephone');
         $this->successNotify(__('site.telephone_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('name');
     }
 
     public function updateTelephone()

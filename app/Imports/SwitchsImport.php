@@ -26,7 +26,7 @@ class SwitchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
     public function model(array $row)
     {
         return SwitchData::firstOrCreate([
-            'name' => $row['name'],
+            'switch_name_id' => $row['switch_name_id'],
             'port' => $row['port'],
         ]);
     }
@@ -34,10 +34,10 @@ class SwitchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
     public function rules(): array
     {
         return [
-            'name' => [
+            'switch_name_id' => [
                 'required',
                 'string',
-                Rule::unique('switch_data') // Ensure national_number is unique in the switch_data table
+                'exists:switch_names,id' // Ensure national_number is unique in the switch_data table
             ],
             'port' => ['required', 'string']
         ];
@@ -46,7 +46,7 @@ class SwitchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The switch name is required.', // Other messages as needed
+            'switch_name_id.required' => 'The switch name is required.', // Other messages as needed
             'port.required' => 'The switch port is required.', // Other messages as needed
         ];
     }

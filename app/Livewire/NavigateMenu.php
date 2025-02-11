@@ -64,6 +64,12 @@ class NavigateMenu extends NavigationMenu
                 'role' => 'view-patch',
             ],
             [
+                'name' => 'switch.names',
+                'value' => 'site.switch_names',
+                'icon' => 'user-group',
+                'role' => 'view-switch-name',
+            ],
+            [
                 'name' => 'switchs',
                 'value' => 'site.switchs',
                 'icon' => 'user-group',
@@ -98,6 +104,12 @@ class NavigateMenu extends NavigationMenu
                 'value' => 'site.users',
                 'icon' => 'user-group',
                 'role' => 'view-user',
+            ],
+            [
+                'name' => 'user.schemas',
+                'value' => 'site.user_schemas',
+                'icon' => 'user-group',
+                'role' => 'view-user-schema',
             ],
         ];
     }

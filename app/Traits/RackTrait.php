@@ -32,8 +32,8 @@ trait RackTrait
         Rack::create($validated);
         $this->dispatch('refresh-list-rack');
         $this->successNotify(__('site.rack_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('name');
     }
 
     public function updateRack()

@@ -20,7 +20,7 @@ trait UserTrait
     public $new_password;
     public $role;
     public $department_id;
-    
+
     protected function rules()
     {
         $rules = [
@@ -71,8 +71,8 @@ trait UserTrait
         $user->syncRoles($this->role);
         $this->dispatch('refresh-list-user');
         $this->successNotify(__('site.user_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset(['name', 'email', 'password', 'status', 'department_id', 'role']);
     }
 
     public function updateUser()

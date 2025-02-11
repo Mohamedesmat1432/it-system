@@ -13,15 +13,27 @@ class SwitchData extends Model
     protected $table = 'switch_data';
 
     protected $fillable = [
-        'name',
-        'port'
+        'port',
+        'switch_name_id'
     ];
+
+    public function userSchema()
+    {
+        return $this->hasMany(UserSchema::class);
+    }
+
+    public function switchName()
+    {
+        return $this->belongsTo(SwitchName::class);
+    }
 
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query) use ($search) {
-            $query->where('name', 'like', "%{$search}%")
-                ->orWhere('port', 'like', "%{$search}%");
+            $query->where('port', 'like', "%{$search}%")
+                ->whereHas('switchName', function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%");
+                });
         });
     }
 }

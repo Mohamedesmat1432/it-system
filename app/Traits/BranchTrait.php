@@ -16,7 +16,7 @@ trait BranchTrait
     protected function rules()
     {
         return [
-            'name' => 'required|string|unique:branchs,name,' . $this->branch_id,
+            'name' => 'required|string|unique:branches,name,' . $this->branch_id,
         ];
     }
 
@@ -33,8 +33,8 @@ trait BranchTrait
         Branch::create($validated);
         $this->dispatch('refresh-list-branch');
         $this->successNotify(__('site.branch_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('name');
     }
 
     public function updateBranch()

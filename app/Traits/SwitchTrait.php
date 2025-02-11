@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Traits;
 
 use App\Models\SwitchData;
+use App\Models\SwitchName;
 use Livewire\WithPagination;
 
 trait SwitchTrait
@@ -10,22 +12,27 @@ trait SwitchTrait
 
     public ?SwitchData $switch;
 
-    public $switch_id, $name;
+    public $switch_id, $port, $switch_name_id;
 
     protected function rules()
     {
         return [
-            'name' => 'required|string|unique:switch_date,name,' . $this->switch_id,
             'port' => 'required|string',
+            'switch_name_id' => 'required|string|exists:switch_names,id'
         ];
+    }
+
+    public function switchNames()
+    {
+        return SwitchName::get() ?? [];
     }
 
     public function setSwitch($id)
     {
         $this->switch = SwitchData::findOrFail($id);
         $this->switch_id = $this->switch->id;
-        $this->name = $this->switch->name;
         $this->port = $this->switch->port;
+        $this->switch_name_id = $this->switch->switch_name_id;
     }
 
     public function storeSwitch()
@@ -35,7 +42,8 @@ trait SwitchTrait
         $this->dispatch('refresh-list-switch');
         $this->successNotify(__('site.switch_created'));
         $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset(['port', 'switch_name_id']);
     }
 
     public function updateSwitch()

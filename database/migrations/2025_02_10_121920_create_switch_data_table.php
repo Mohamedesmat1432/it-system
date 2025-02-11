@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('switch_data', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
             $table->string('port');
+            $table->uuid('switch_name_id')->nullable();
+            $table->foreign('switch_name_id')->references('id')->on('switch_names')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,6 +16,11 @@ class Rack extends Model
         'name',
     ];
 
+    public function userSchema()
+    {
+        return $this->hasMany(UserSchema::class);
+    }
+
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query) use ($search) {

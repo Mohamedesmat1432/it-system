@@ -13,8 +13,10 @@ use App\Livewire\Rack\ListRack;
 use App\Livewire\Role\ListRole;
 use App\Livewire\Subnet\ListSubnet;
 use App\Livewire\Switch\ListSwitch;
+use App\Livewire\SwitchName\ListSwitchName;
 use App\Livewire\Telephone\ListTelephone;
 use App\Livewire\User\ListUser;
+use App\Livewire\UserSchema\ListUserSchema;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
 /*
@@ -46,6 +48,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/subnets', ListSubnet::class)->name('subnets');
     Route::get('/telephones', ListTelephone::class)->name('telephones');
     Route::get('/patchs', ListPatch::class)->name('patchs');
+    Route::get('/switch-names', ListSwitchName::class)->name('switch.names');
     Route::get('/switchs', ListSwitch::class)->name('switchs');
     Route::get('/ips', ListIp::class)->name('ips');
+    Route::get('/user-schemas', ListUserSchema::class)->name('user.schemas');
 });

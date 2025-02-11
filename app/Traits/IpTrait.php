@@ -33,8 +33,8 @@ trait IpTrait
         Ip::create($validated);
         $this->dispatch('refresh-list-ip');
         $this->successNotify(__('site.ip_created'));
-        $this->create_modal = false;
-        $this->reset();
+        // $this->create_modal = false;
+        $this->reset('number');
     }
 
     public function updateIp()
