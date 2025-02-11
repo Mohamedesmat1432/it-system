@@ -23,9 +23,9 @@
                     <x-label for="branch_id" value="{{ __('site.branch_id') }}" />
                     <x-select class="mt-1 block w-full" wire:model="branch_id">
                         <option value="">{{ __('site.select_branch') }}</option>
-                        @foreach ($this->branches() as $branch)
-                        <option value="{{ $branch->id }}">
-                            {{ $branch->name }}
+                        @foreach ($this->branches() as $key => $val)
+                        <option value="{{ $key }}">
+                            {{ $val }}
                         </option>
                         @endforeach
                     </x-select>
@@ -47,9 +47,9 @@
                     <x-label for="rack_id" value="{{ __('site.rack_id') }}" />
                     <x-select class="mt-1 block w-full" wire:model="rack_id">
                         <option value="">{{ __('site.select_rack') }}</option>
-                        @foreach ($this->racks() as $rack)
-                        <option value="{{ $rack->id }}">
-                            {{ $rack->name }}
+                        @foreach ($this->racks() as $key => $val)
+                        <option value="{{ $key }}">
+                            {{ $val }}
                         </option>
                         @endforeach
                     </x-select>
@@ -59,9 +59,9 @@
                     <x-label for="subnet_id" value="{{ __('site.subnet_id') }}" />
                     <x-select class="mt-1 block w-full" wire:model="subnet_id">
                         <option value="">{{ __('site.select_subnet') }}</option>
-                        @foreach ($this->subnets() as $subnet)
-                        <option value="{{ $subnet->id }}">
-                            {{ $subnet->name }}
+                        @foreach ($this->subnets() as $key => $val)
+                        <option value="{{ $key }}">
+                            {{ $val }}
                         </option>
                         @endforeach
                     </x-select>
@@ -108,9 +108,9 @@
                     <x-label for="telephone_id" value="{{ __('site.telephone_id') }}" />
                     <x-select class="mt-1 block w-full" wire:model="telephone_id">
                         <option value="">{{ __('site.select_telephone') }}</option>
-                        @foreach ($this->telephones() as $telephone)
-                        <option value="{{ $telephone->id }}">
-                            {{ $telephone->name }}
+                        @foreach ($this->telephones() as $key => $val)
+                        <option value="{{ $key }}">
+                            {{ $val }}
                         </option>
                         @endforeach
                     </x-select>

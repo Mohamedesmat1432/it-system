@@ -20,8 +20,13 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             DepartmentSeeder::class,
             UserSeeder::class,
-            GovernmentSeeder::class,
-            // CitySeeder::class,
+            GovernmentCitySeeder::class,
+            BranchSeeder::class,
+            RackSeeder::class,
+            SubnetSeeder::class,
+            PatchSeeder::class,
+            TelephoneSeeder::class,
+            IpSeeder::class,
         ]);
     }
 }

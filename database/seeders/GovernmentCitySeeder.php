@@ -6,7 +6,7 @@ use App\Models\Government;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class GovernmentSeeder extends Seeder
+class GovernmentCitySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -511,7 +511,7 @@ class GovernmentSeeder extends Seeder
             ['اسيوط', 'Assiut', $assiutCities],
             ['بني سويف', 'Beni Suef', $beniSuefCities],
             ['بورسعيد', 'Port Said', $porSaidCities],
-            ['دمياط', 'Damietta', $dakahliaCities],
+            ['دمياط', 'Damietta', $damiettaCities],
             ['الشرقية', 'Sharkia', $sharkiaCities],
             ['جنوب سيناء', 'South Sinai', $southSinaiCities],
             ['كفر الشيخ', 'Kafr Al sheikh', $kafrAlSheikhCities],

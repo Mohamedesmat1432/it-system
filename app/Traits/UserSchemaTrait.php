@@ -48,16 +48,6 @@ trait UserSchemaTrait
         return User::whereNotIn('id', $userIds)->get() ?? [];
     }
 
-    public function branches()
-    {
-        return Branch::get() ?? [];
-    }
-
-    public function racks()
-    {
-        return Rack::get();
-    }
-
     public function patches()
     {
         $patchIds = ($this->user_schema_id)
@@ -65,11 +55,6 @@ trait UserSchemaTrait
             : UserSchema::pluck('patch_id')->toArray();
 
         return Patch::whereNotIn('id', $patchIds)->get() ?? [];
-    }
-
-    public function subnets()
-    {
-        return Subnet::get();
     }
 
     public function ips()
@@ -81,11 +66,6 @@ trait UserSchemaTrait
         return Ip::whereNotIn('id', $ipIds)->get();
     }
 
-    public function telephones()
-    {
-        return Telephone::get();
-    }
-
     public function switchs()
     {
         $switchIds = ($this->user_schema_id)
@@ -93,6 +73,26 @@ trait UserSchemaTrait
             : UserSchema::pluck('switch_id')->toArray();
 
         return SwitchData::whereNotIn('id', $switchIds)->get() ?? [];
+    }
+
+    public function branches()
+    {
+        return Branch::pluck('name', 'id')->toArray() ?? [];
+    }
+
+    public function racks()
+    {
+        return Rack::pluck('name', 'id')->toArray() ?? [];
+    }
+
+    public function subnets()
+    {
+        return Subnet::pluck('name', 'id')->toArray() ?? [];
+    }
+
+    public function telephones()
+    {
+        return Telephone::pluck('name', 'id')->toArray() ?? [];
     }
 
     public function floors()
