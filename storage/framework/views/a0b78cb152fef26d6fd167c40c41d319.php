@@ -49,11 +49,8 @@
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'switch_name_id']); ?>
                         <option value=""><?php echo e(__('site.select_switch_name')); ?></option>
-                        <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->switchNames(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $switchName): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($switchName->id); ?>">
-                            <?php echo e($switchName->name); ?>
-
-                        </option>
+                        <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->switchNames(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

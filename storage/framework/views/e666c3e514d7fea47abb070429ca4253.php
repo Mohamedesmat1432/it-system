@@ -50,10 +50,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'user_id']); ?>
                         <option value=""><?php echo e(__('site.select_user')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->users(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($user->id); ?>">
-                            <?php echo e($user->name); ?>
-
-                        </option>
+                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -119,10 +116,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'branch_id']); ?>
                         <option value=""><?php echo e(__('site.select_branch')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->branches(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($key); ?>">
-                            <?php echo e($val); ?>
-
-                        </option>
+                        <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -188,10 +182,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'floor']); ?>
                         <option value=""><?php echo e(__('site.select_floor')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->floors(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $floor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($floor->value); ?>">
-                            <?php echo e($floor->value); ?>
-
-                        </option>
+                        <option value="<?php echo e($floor->value); ?>"><?php echo e($floor->value); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -257,10 +248,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'rack_id']); ?>
                         <option value=""><?php echo e(__('site.select_rack')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->racks(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($key); ?>">
-                            <?php echo e($val); ?>
-
-                        </option>
+                        <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -326,10 +314,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'subnet_id']); ?>
                         <option value=""><?php echo e(__('site.select_subnet')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->subnets(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($key); ?>">
-                            <?php echo e($val); ?>
-
-                        </option>
+                        <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -395,10 +380,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'patch_id']); ?>
                         <option value=""><?php echo e(__('site.select_patch')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->patches(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patch): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($patch->id); ?>">
-                            <?php echo e($patch->port); ?>
-
-                        </option>
+                        <option value="<?php echo e($patch->id); ?>"><?php echo e($patch->port); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -534,10 +516,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'ip_id']); ?>
                         <option value=""><?php echo e(__('site.select_ip')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->ips(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ip): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($ip->id); ?>">
-                            <?php echo e($ip->number); ?>
-
-                        </option>
+                        <option value="<?php echo e($ip->id); ?>"><?php echo e($ip->number); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -603,10 +582,7 @@
 <?php $component->withAttributes(['class' => 'mt-1 block w-full','wire:model' => 'telephone_id']); ?>
                         <option value=""><?php echo e(__('site.select_telephone')); ?></option>
                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->telephones(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($key); ?>">
-                            <?php echo e($val); ?>
-
-                        </option>
+                        <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

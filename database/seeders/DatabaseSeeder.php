@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             PatchSeeder::class,
             TelephoneSeeder::class,
             IpSeeder::class,
+            SwitchSeeder::class,
         ]);
     }
 }
