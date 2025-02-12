@@ -22,7 +22,7 @@ class CompanysImport implements ToModel, WithHeadingRow, WithValidation, SkipsEm
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Company::firstOrCreate([
@@ -33,18 +33,14 @@ class CompanysImport implements ToModel, WithHeadingRow, WithValidation, SkipsEm
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('companies') // Ensure national_number is unique in the companys table
-            ],
+            'name' => ['required', 'string', Rule::unique('companies')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The company name is required.', // Other messages as needed
+            'name.required' => 'The company name is required.',
         ];
     }
 

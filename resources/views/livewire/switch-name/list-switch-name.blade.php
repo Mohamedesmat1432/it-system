@@ -74,6 +74,30 @@
                             </td>
                             <td class="px-4 py-2 border">
                                 <div class="flex justify-center">
+                                    <button wire:click="sortByField('ip')">
+                                        {{ __('site.ip') }}
+                                    </button>
+                                    <x-sort-icon sort_field="ip" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('password')">
+                                        {{ __('site.password') }}
+                                    </button>
+                                    <x-sort-icon sort_field="password" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('password_enable')">
+                                        {{ __('site.password_enable') }}
+                                    </button>
+                                    <x-sort-icon sort_field="password_enable" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
                                     {{ __('site.action') }}
                                 </div>
                             </td>
@@ -92,6 +116,15 @@
                             </td>
                             <td class="p-2 border">
                                 {{ $switch_name->name }}
+                            </td>
+                            <td class="p-2 border">
+                                {{ $switch_name->ip }}
+                            </td>
+                            <td class="p-2 border">
+                                {{ $switch_name->password }}
+                            </td>
+                            <td class="p-2 border">
+                                {{ $switch_name->password_enable }}
                             </td>
                             <td class="p-2 border">
                                 <div class="flex justify-center">

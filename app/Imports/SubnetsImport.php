@@ -22,7 +22,7 @@ class SubnetsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Subnet::firstOrCreate([
@@ -33,18 +33,14 @@ class SubnetsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('subnets') // Ensure national_number is unique in the Subnets table
-            ],
+            'name' => ['required', 'string', Rule::unique('subnets')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The Subnet name is required.', // Other messages as needed
+            'name.required' => 'The Subnet name is required.',
         ];
     }
 

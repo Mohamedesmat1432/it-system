@@ -532,5 +532,7 @@ return [
     'select_switch' => 'Select Switch',
     'select_switch_name' => 'Select Switch Name',
     'floor' => 'Floor',
-    'select_floor' => 'select Floor',
+    'select_floor' => 'Select Floor',
+    'ip' => 'Ip',
+    'password_enable' => 'Password Enable',
 ];

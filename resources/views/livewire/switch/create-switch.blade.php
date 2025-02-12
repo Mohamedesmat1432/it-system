@@ -11,10 +11,8 @@
                     <x-label for="switch_name_id" value="{{ __('site.switch_name_id') }}" />
                     <x-select class="mt-1 block w-full" wire:model="switch_name_id">
                         <option value="">{{ __('site.select_switch_name') }}</option>
-                        @foreach ($this->switchNames() as $switchName)
-                        <option value="{{ $switchName->id }}">
-                            {{ $switchName->name }}
-                        </option>
+                        @foreach ($this->switchNames() as $key => $val)
+                        <option value="{{ $key }}">{{ $val }}</option>
                         @endforeach
                     </x-select>
                     <x-input-error for="switch_name_id" class="mt-2" />

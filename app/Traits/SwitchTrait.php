@@ -24,7 +24,7 @@ trait SwitchTrait
 
     public function switchNames()
     {
-        return SwitchName::get() ?? [];
+        return SwitchName::pluck('name', 'id')->toArray() ?? [];
     }
 
     public function setSwitch($id)

@@ -22,7 +22,7 @@ class BranchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Branch::firstOrCreate([
@@ -33,18 +33,14 @@ class BranchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmp
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('branchs') // Ensure national_number is unique in the Branchs table
-            ],
+            'name' => ['required', 'string', Rule::unique('branchs')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The Branch name is required.', // Other messages as needed
+            'name.required' => 'The Branch name is required.',
         ];
     }
 

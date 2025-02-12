@@ -22,7 +22,7 @@ class IpsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmptyRo
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Ip::firstOrCreate([
@@ -33,18 +33,14 @@ class IpsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmptyRo
     public function rules(): array
     {
         return [
-            'number' => [
-                'required',
-                'string',
-                Rule::unique('ips') // Ensure national_number is unique in the Ips table
-            ],
+            'number' => ['required', 'string', Rule::unique('ips')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'number.required' => 'The Ip number is required.', // Other messages as needed
+            'number.required' => 'The Ip number is required.',
         ];
     }
 

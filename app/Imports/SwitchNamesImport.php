@@ -22,29 +22,31 @@ class SwitchNamesImport implements ToModel, WithHeadingRow, WithValidation, Skip
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return SwitchName::firstOrCreate([
             'name' => $row['name'],
+            'ip' => $row['ip'],
+            'password' => $row['password'],
+            'password_enable' => $row['password_enable'],
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('companies') // Ensure national_number is unique in the companys table
-            ],
+            'name' => ['required', 'string', Rule::unique('switch_names')],
+            'ip' => ['nullable', 'string', Rule::unique('switch_names')],
+            'password' => ['nullable', 'string'],
+            'password_enable' => ['nullable', 'string'],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The company name is required.', // Other messages as needed
+            'name.required' => 'The switch name name is required.',
         ];
     }
 
@@ -59,4 +61,3 @@ class SwitchNamesImport implements ToModel, WithHeadingRow, WithValidation, Skip
         }
     }
 }
-

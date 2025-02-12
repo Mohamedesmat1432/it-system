@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use App\Models\SwitchName;
@@ -10,12 +11,15 @@ trait SwitchNameTrait
 
     public ?SwitchName $switch_name;
 
-    public $switch_name_id, $name;
+    public $switch_name_id, $name, $ip, $password, $password_enable;
 
     protected function rules()
     {
         return [
             'name' => 'required|string|unique:switch_names,name,' . $this->switch_name_id,
+            'ip' => 'nullable|string|unique:switch_names,ip,' . $this->switch_name_id,
+            'password' => 'nullable|string',
+            'password_enable' => 'nullable|string'
         ];
     }
 
@@ -24,6 +28,9 @@ trait SwitchNameTrait
         $this->switch_name = SwitchName::findOrFail($id);
         $this->switch_name_id = $this->switch_name->id;
         $this->name = $this->switch_name->name;
+        $this->ip = $this->switch_name->ip;
+        $this->password = $this->switch_name->password;
+        $this->password_enable = $this->switch_name->password_enable;
     }
 
     public function storeSwitchName()
@@ -33,7 +40,7 @@ trait SwitchNameTrait
         $this->dispatch('refresh-list-switch-name');
         $this->successNotify(__('site.switch_name_created'));
         // $this->create_modal = false;
-        $this->reset('name');
+        $this->reset(['name', 'ip', 'password', 'password_enable']);
     }
 
     public function updateSwitchName()

@@ -22,7 +22,7 @@ class TelephonesImport implements ToModel, WithHeadingRow, WithValidation, Skips
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Telephone::firstOrCreate([
@@ -33,18 +33,14 @@ class TelephonesImport implements ToModel, WithHeadingRow, WithValidation, Skips
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('telephones') // Ensure national_number is unique in the Telephones table
-            ],
+            'name' => ['required', 'string', Rule::unique('telephones')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The Telephone name is required.', // Other messages as needed
+            'name.required' => 'The Telephone name is required.',
         ];
     }
 

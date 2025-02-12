@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('switch_names', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('ip')->nullable();
+            $table->string('password')->nullable();
+            $table->string('password_enable')->nullable();
+            $table->unique(['name', 'ip']);
             $table->timestamps();
         });
     }

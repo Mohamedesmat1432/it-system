@@ -549,4 +549,6 @@ return [
     'switch_name_imported' => 'تم استرداد اسماء السوتشات بنجاح',
     'floor' => 'الدور',
     'select_floor' => 'اختر الدور',
+    'ip' => 'اي بي',
+    'password_enable' => 'كلمة المرور التالية',
 ];

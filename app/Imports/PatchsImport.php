@@ -22,7 +22,7 @@ class PatchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmpt
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Patch::firstOrCreate([
@@ -33,18 +33,14 @@ class PatchsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmpt
     public function rules(): array
     {
         return [
-            'port' => [
-                'required',
-                'string',
-                Rule::unique('patchs') // Ensure national_port is unique in the Patchs table
-            ],
+            'port' => ['required', 'string', Rule::unique('patchs')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'port.required' => 'The Patch port is required.', // Other messages as needed
+            'port.required' => 'The Patch port is required.',
         ];
     }
 

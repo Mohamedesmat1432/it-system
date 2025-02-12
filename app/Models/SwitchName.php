@@ -14,6 +14,9 @@ class SwitchName extends Model
 
     protected $fillable = [
         'name',
+        'ip',
+        'password',
+        'password_enable',
     ];
 
     public function switchData()
@@ -24,7 +27,10 @@ class SwitchName extends Model
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query) use ($search) {
-            $query->where('name', 'like', "%{$search}%");
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('ip', 'like', "%{$search}%")
+                ->orWhere('password', 'like', "%{$search}%")
+                ->orWhere('password_enable', 'like', "%{$search}%");
         });
     }
 }

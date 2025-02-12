@@ -22,7 +22,7 @@ class RacksImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmpty
      */
 
     public $skippedRows = [];
-    
+
     public function model(array $row)
     {
         return Rack::firstOrCreate([
@@ -33,18 +33,14 @@ class RacksImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmpty
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('racks') // Ensure national_number is unique in the Racks table
-            ],
+            'name' => ['required', 'string', Rule::unique('racks')],
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'name.required' => 'The Rack name is required.', // Other messages as needed
+            'name.required' => 'The Rack name is required.',
         ];
     }
 

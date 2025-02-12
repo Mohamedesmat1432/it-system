@@ -44,6 +44,9 @@ class SwitchNamesExport implements FromCollection, WithHeadings, WithStyles, Sho
         return [
             $switch_name->id,
             $switch_name->name,
+            $switch_name->ip,
+            $switch_name->password,
+            $switch_name->password_enable,
         ];
     }
 
@@ -53,11 +56,16 @@ class SwitchNamesExport implements FromCollection, WithHeadings, WithStyles, Sho
             return [
                 __('site.id'),
                 __('site.name'),
+                __('site.ip'),
+                __('site.password'),
+                __('site.password_enable'),
             ];
         } else {
             return [
                 'id',
                 'name',
+                'password',
+                'password_enable',
             ];
         }
     }
