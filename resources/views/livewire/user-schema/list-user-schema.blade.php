@@ -203,7 +203,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="12" class="p-2 border text-center">
+                            <td colspan="13" class="p-2 border text-center">
                                 {{ __('site.no_data_found') }}
                             </td>
                         </tr>

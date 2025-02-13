@@ -9,9 +9,11 @@ use App\Livewire\Home\HomeComponent;
 use App\Livewire\Ip\ListIp;
 use App\Livewire\Patch\ListPatch;
 use App\Livewire\Permission\ListPermission;
+use App\Livewire\Problem\ListProblem;
 use App\Livewire\Rack\ListRack;
 use App\Livewire\Role\ListRole;
 use App\Livewire\Subnet\ListSubnet;
+use App\Livewire\SubProblem\ListSubProblem;
 use App\Livewire\Switch\ListSwitch;
 use App\Livewire\SwitchName\ListSwitchName;
 use App\Livewire\Telephone\ListTelephone;
@@ -52,4 +54,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/switchs', ListSwitch::class)->name('switchs');
     Route::get('/ips', ListIp::class)->name('ips');
     Route::get('/user-schemas', ListUserSchema::class)->name('user.schemas');
+    Route::get('/problems', ListProblem::class)->name('problems');
+    Route::get('/sub-problems', ListSubProblem::class)->name('sub.problems');
 });

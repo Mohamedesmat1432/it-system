@@ -713,7 +713,7 @@ if (isset($__slots)) unset($__slots);
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
-                            <td colspan="12" class="p-2 border text-center">
+                            <td colspan="13" class="p-2 border text-center">
                                 <?php echo e(__('site.no_data_found')); ?>
 
                             </td>

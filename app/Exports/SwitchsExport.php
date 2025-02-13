@@ -43,7 +43,8 @@ class SwitchsExport implements FromCollection, WithHeadings, WithStyles, ShouldA
     {
         return [
             $switch->id,
-            $switch->name,
+            $switch->switchName?->name,
+            $switch->port,
         ];
     }
 
@@ -52,12 +53,14 @@ class SwitchsExport implements FromCollection, WithHeadings, WithStyles, ShouldA
         if ($this->originalCoulmns) {
             return [
                 __('site.id'),
-                __('site.name'),
+                __('site.switch_name_id'),
+                __('site.port'),
             ];
         } else {
             return [
                 'id',
-                'name',
+                'switch_name_id',
+                'port',
             ];
         }
     }

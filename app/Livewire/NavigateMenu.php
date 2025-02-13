@@ -88,6 +88,18 @@ class NavigateMenu extends NavigationMenu
                 'role' => 'view-telephone',
             ],
             [
+                'name' => 'problems',
+                'value' => 'site.problems',
+                'icon' => 'user-group',
+                'role' => 'view-problem',
+            ],
+            [
+                'name' => 'sub.problems',
+                'value' => 'site.sub_problems',
+                'icon' => 'user-group',
+                'role' => 'view-sub-problem',
+            ],
+            [
                 'name' => 'backup',
                 'value' => 'site.backup',
                 'icon' => 'inbox-stack',
