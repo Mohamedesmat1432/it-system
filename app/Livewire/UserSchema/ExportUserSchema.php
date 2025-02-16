@@ -26,7 +26,7 @@ class ExportUserSchema extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-user-schema');
             $this->successNotify(__('site.user_schema_exported'));
-            return (new UserSchemasExport($this->search))->download('user-schema.' . $this->extension);
+            return (new UserSchemasExport($this->search))->download('user-schemas.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

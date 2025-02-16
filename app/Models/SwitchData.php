@@ -19,12 +19,12 @@ class SwitchData extends Model
 
     public function userSchema()
     {
-        return $this->hasMany(UserSchema::class);
+        return $this->hasMany(UserSchema::class, 'user_id');
     }
 
     public function switchName()
     {
-        return $this->belongsTo(SwitchName::class);
+        return $this->belongsTo(SwitchName::class, 'switch_name_id');
     }
 
     public function scopeSearch($query, $search)

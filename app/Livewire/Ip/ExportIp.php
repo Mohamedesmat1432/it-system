@@ -27,7 +27,7 @@ class ExportIp extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-ip');
             $this->successNotify(__('site.ip_exported'));
-            return (new IpsExport($this->search))->download('ip.' . $this->extension);
+            return (new IpsExport($this->search))->download('ips.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

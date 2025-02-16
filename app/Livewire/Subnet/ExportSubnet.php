@@ -27,7 +27,7 @@ class ExportSubnet extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-subnet');
             $this->successNotify(__('site.subnet_exported'));
-            return (new SubnetsExport($this->search))->download('subnet.' . $this->extension);
+            return (new SubnetsExport($this->search))->download('subnets.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

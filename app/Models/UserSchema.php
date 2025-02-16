@@ -27,42 +27,42 @@ class UserSchema extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function branch()
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(Branch::class, 'branch_id');
     }
 
     public function rack()
     {
-        return $this->belongsTo(Rack::class);
+        return $this->belongsTo(Rack::class, 'rack_id');
     }
 
     public function patch()
     {
-        return $this->belongsTo(Patch::class);
+        return $this->belongsTo(Patch::class, 'patch_id');
     }
 
     public function subnet()
     {
-        return $this->belongsTo(Subnet::class);
+        return $this->belongsTo(Subnet::class, 'subnet_id');
     }
 
     public function ip()
     {
-        return $this->belongsTo(Ip::class);
+        return $this->belongsTo(Ip::class, 'ip_id');
     }
 
     public function telephone()
     {
-        return $this->belongsTo(Telephone::class);
+        return $this->belongsTo(Telephone::class, 'telephone_id');
     }
 
     public function switch()
     {
-        return $this->belongsTo(SwitchData::class);
+        return $this->belongsTo(SwitchData::class, 'switch_id');
     }
 
     public function scopeSearch($query, $search)

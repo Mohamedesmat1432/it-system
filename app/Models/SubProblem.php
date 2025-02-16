@@ -19,7 +19,12 @@ class SubProblem extends Model
 
     public function problem()
     {
-        return $this->belongsTo(Problem::class);
+        return $this->belongsTo(Problem::class, 'problem_id');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'sub_problem_id');
     }
 
     public function scopeSearch($query, $search)

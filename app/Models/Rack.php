@@ -18,7 +18,7 @@ class Rack extends Model
 
     public function userSchema()
     {
-        return $this->hasMany(UserSchema::class);
+        return $this->hasMany(UserSchema::class, 'rack_id');
     }
 
     public function scopeSearch($query, $search)

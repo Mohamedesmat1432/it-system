@@ -27,7 +27,7 @@ class ExportProblem extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-problem');
             $this->successNotify(__('site.problem_exported'));
-            return (new ProblemsExport($this->search))->download('problem.' . $this->extension);
+            return (new ProblemsExport($this->search))->download('problems.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

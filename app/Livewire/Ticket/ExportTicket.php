@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire\Patch;
+namespace App\Livewire\Ticket;
 
-use App\Exports\PatchsExport;
-use App\Traits\PatchTrait;
+use App\Exports\TicketsExport;
+use App\Traits\TicketTrait;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 #[Layout('layouts.app')]
-class ExportPatch extends Component
+class ExportTicket extends Component
 {
-    use PatchTrait;
+    use TicketTrait;
 
     #[On('export-modal')]
     public function exportModal()
@@ -25,9 +25,9 @@ class ExportPatch extends Component
     {
         try {
             $this->export_modal = false;
-            $this->dispatch('refresh-list-patch');
-            $this->successNotify(__('site.patch_exported'));
-            return (new PatchsExport($this->search))->download('patches.' . $this->extension);
+            $this->dispatch('refresh-list-ticket');
+            $this->successNotify(__('site.ticket_exported'));
+            return (new TicketsExport($this->search))->download('tickets.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }
@@ -35,8 +35,8 @@ class ExportPatch extends Component
     
     public function render()
     {
-        $this->authorize('export-patch');
+        $this->authorize('export-ticket');
         
-        return view('livewire.patch.export-patch');
+        return view('livewire.ticket.export-ticket');
     }
 }

@@ -1,30 +1,30 @@
 <div>
-    <x-page-content page-name="{{ __('site.telephones') }}">
+    <x-page-content page-name="{{ __('site.tickets') }}">
 
-        @can('create-telephone')
-            <livewire:telephone.create-telephone />
+        @can('create-ticket')
+            <livewire:ticket.create-ticket />
         @endcan
-        @can('edit-telephone')
-            <livewire:telephone.update-telephone />
+        @can('edit-ticket')
+            <livewire:ticket.update-ticket />
         @endcan
-        @can('delete-telephone')
-            <livewire:telephone.delete-telephone />
+        @can('delete-ticket')
+            <livewire:ticket.delete-ticket />
         @endcan
-        @can('bulk-delete-telephone')
-            <livewire:telephone.bulk-delete-telephone />
+        @can('bulk-delete-ticket')
+            <livewire:ticket.bulk-delete-ticket />
         @endcan
-        @can('import-telephone')
-            <livewire:telephone.import-telephone />
+        @can('import-ticket')
+            <livewire:ticket.import-ticket />
         @endcan
-        @can('export-telephone')
-            <livewire:telephone.export-telephone />
+        @can('export-ticket')
+            <livewire:ticket.export-ticket />
         @endcan
 
         <div class="p-6 lg:p-8 bg-white border-b border-gray-200 rounded-md">
 
             <div class="flex justify-between">
                 <h1 class=" text-2xl font-medium text-gray-900">
-                    {{ __('site.telephones') }}
+                    {{ __('site.tickets') }}
                 </h1>
             </div>
 
@@ -36,12 +36,12 @@
                                 placeholder="{{ __('site.search') }}..." />
                         </div>
                         <div class="mb-2 grid grid-cols-3 md:grid-cols-3 gap-4">
-                            <x-create-button permission="create-telephone" />
-                            <x-import-button permission="import-telephone" />
-                            <x-export-button permission="export-telephone" />
+                            <x-create-button permission="create-ticket" />
+                            <x-import-button permission="import-ticket" />
+                            <x-export-button permission="export-ticket" />
                         </div>
                     </div>
-                    @can('bulk-delete-telephone')
+                    @can('bulk-delete-ticket')
                         <x-bulk-delete-button />
                     @endcan
                 </div>
@@ -49,7 +49,7 @@
                 <x-table>
                     <x-slot name="thead">
                         <tr>
-                            @can('bulk-delete-telephone')
+                            @can('bulk-delete-ticket')
                                 <td class="px-4 py-2 border">
                                     <div class="text-center">
                                         <x-checkbox wire:click="checkboxAll" wire:model.live="checkbox_status" />
@@ -80,25 +80,25 @@
                         </tr>
                     </x-slot>
                     <x-slot name="tbody">
-                        @forelse ($telephones as $telephone)
-                            <tr wire:key="telephone-{{ $telephone->id }}" class="odd:bg-gray-100">
-                                @can('bulk-delete-telephone')
+                        @forelse ($tickets as $ticket)
+                            <tr wire:key="ticket-{{ $ticket->id }}" class="odd:bg-gray-100">
+                                @can('bulk-delete-ticket')
                                     <td class="p-2 border">
-                                        <x-checkbox wire:model.live="checkbox_arr" value="{{ $telephone->id }}" />
+                                        <x-checkbox wire:model.live="checkbox_arr" value="{{ $ticket->id }}" />
                                     </td>
                                 @endcan
                                 <td class="p-2 border">
-                                    {{ $telephone->id }}
+                                    {{ $ticket->id }}
                                 </td>
                                 <td class="p-2 border">
-                                    {{ $telephone->name }}
+                                    {{ $ticket->name }}
                                 </td>
                                 <td class="p-2 border">
                                     <div class="flex justify-center">
-                                        <x-edit-button permission="edit-telephone" id="{{ $telephone->id }}" />
+                                        <x-edit-button permission="edit-ticket" id="{{ $ticket->id }}" />
                                         <div class="mx-1"></div>
-                                        <x-delete-button permission="delete-telephone" id="{{ $telephone->id }}"
-                                            name="{{ $telephone->name }}" />
+                                        <x-delete-button permission="delete-ticket" id="{{ $ticket->id }}"
+                                            name="{{ $ticket->name }}" />
                                     </div>
                                 </td>
                             </tr>
@@ -112,8 +112,8 @@
                     </x-slot>
                 </x-table>
 
-                @if ($telephones->hasPages())
-                    <x-paginate :data-links="$telephones->links()" />
+                @if ($tickets->hasPages())
+                    <x-paginate :data-links="$tickets->links()" />
                 @endif
             </div>
         </div>

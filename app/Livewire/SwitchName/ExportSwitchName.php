@@ -27,7 +27,7 @@ class ExportSwitchName extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-switch-name');
             $this->successNotify(__('site.switch_name_exported'));
-            return (new SwitchNamesExport($this->search))->download('switch-name.' . $this->extension);
+            return (new SwitchNamesExport($this->search))->download('switch-names.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

@@ -18,7 +18,7 @@ class Telephone extends Model
 
     public function userSchema()
     {
-        return $this->hasMany(UserSchema::class);
+        return $this->hasMany(UserSchema::class, 'user_id');
     }
 
     public function scopeSearch($query, $search)

@@ -18,7 +18,7 @@ class Patch extends Model
 
     public function userSchema()
     {
-        return $this->hasMany(UserSchema::class);
+        return $this->hasMany(UserSchema::class, 'patch_id');
     }
 
     public function scopeSearch($query, $search)

@@ -27,7 +27,7 @@ class ExportRack extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-rack');
             $this->successNotify(__('site.rack_exported'));
-            return (new RacksExport($this->search))->download('rack.' . $this->extension);
+            return (new RacksExport($this->search))->download('racks.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

@@ -27,7 +27,7 @@ class ExportTelephone extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-telephone');
             $this->successNotify(__('site.telephone_exported'));
-            return (new TelephonesExport($this->search))->download('telephone.' . $this->extension);
+            return (new TelephonesExport($this->search))->download('telephones.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

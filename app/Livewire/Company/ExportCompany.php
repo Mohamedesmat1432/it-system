@@ -27,7 +27,7 @@ class ExportCompany extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-company');
             $this->successNotify(__('site.company_exported'));
-            return (new CompanysExport($this->search))->download('company.' . $this->extension);
+            return (new CompanysExport($this->search))->download('companies.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

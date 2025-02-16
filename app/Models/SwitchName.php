@@ -21,7 +21,7 @@ class SwitchName extends Model
 
     public function switchData()
     {
-        return $this->hasMany(SwitchData::class);
+        return $this->hasMany(SwitchData::class, 'switch_name_id');
     }
 
     public function scopeSearch($query, $search)

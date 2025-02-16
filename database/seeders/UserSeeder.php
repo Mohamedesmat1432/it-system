@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Department;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,16 +17,46 @@ class UserSeeder extends Seeder
 
     public function run(): void
     {
-        $user = User::create([
-            'name' => 'SuperAdmin',
-            'email' => 'superadmin@gmail.com',
-            'password' => Hash::make('Q@W#E$P@ssw0rd'),
-        ]);
+        $department = Department::where('name', 'نظم المعلومات')->first();
+
+        $users = [
+            [
+                'name' => 'mohamed esmat',
+                'email' => 'mesmat@gmail.com',
+                'password' => Hash::make('P@ssw0rd'),
+                'department_id' => $department->id,
+            ],
+            [
+                'name' => 'ahmed salem',
+                'email' => 'asalem@gmail.com',
+                'password' => Hash::make('P@ssw0rd'),
+                'department_id' => $department->id,
+            ],
+            [
+                'name' => 'hossam khaled',
+                'email' => 'hkhaled@gmail.com',
+                'password' => Hash::make('P@ssw0rd'),
+                'department_id' => $department->id,
+            ],
+            [
+                'name' => 'mohamed negm',
+                'email' => 'mnegm@gmail.com',
+                'password' => Hash::make('P@ssw0rd'),
+                'department_id' => $department->id,
+            ],
+            [
+                'name' => 'saber emam',
+                'email' => 'semam@gmail.com',
+                'password' => Hash::make('P@ssw0rd'),
+                'department_id' => $department->id,
+            ]
+        ];
 
         $role = Role::where('name', 'Super Admin')->first();
-        if (!$role) {
-            dd('Role not found');
+
+        foreach ($users as $user) {
+            $user = User::create($user);
+            $user->assignRole($role->name);
         }
-        $user->assignRole($role->name);
     }
 }

@@ -16,9 +16,14 @@ class Problem extends Model
         'name',
     ];
 
-    public function users()
+    public function subProblems()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(SubProblem::class, 'sub_problem_id');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'problem_id');
     }
 
     public function scopeSearch($query, $search)

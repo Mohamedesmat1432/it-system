@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function department(): BelongsTo
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class, 'department_id');
     }
 
     protected function name(): Attribute
@@ -72,7 +72,17 @@ class User extends Authenticatable
 
     public function userSchema()
     {
-        return $this->hasMany(UserSchema::class);
+        return $this->hasMany(UserSchema::class, 'user_id');
+    }
+
+    public function createdTickets()
+    {
+        return $this->hasMany(Ticket::class, 'created_by');
+    }
+
+    public function assignedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'send_to');
     }
 
     public function scopeSearch($query, $search)
@@ -83,4 +93,3 @@ class User extends Authenticatable
         });
     }
 }
-

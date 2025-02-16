@@ -27,7 +27,7 @@ class ExportSwitch extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-switch');
             $this->successNotify(__('site.switch_exported'));
-            return (new SwitchsExport($this->search))->download('switch.' . $this->extension);
+            return (new SwitchsExport($this->search))->download('switches.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

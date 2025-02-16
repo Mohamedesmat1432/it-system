@@ -27,7 +27,7 @@ class ExportSubProblem extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-sub-problem');
             $this->successNotify(__('site.sub_problem_exported'));
-            return (new SubProblemsExport($this->search))->download('sub-problem.' . $this->extension);
+            return (new SubProblemsExport($this->search))->download('sub-problems.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }

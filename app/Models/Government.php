@@ -27,11 +27,6 @@ class Government extends Model
         return $this->hasMany(City::class);
     }
 
-    public function origins()
-    {
-        return $this->hasMany(Origin::class);
-    }
-
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query) use ($search) {

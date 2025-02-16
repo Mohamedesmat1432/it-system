@@ -27,7 +27,7 @@ class ExportBranch extends Component
             $this->export_modal = false;
             $this->dispatch('refresh-list-branch');
             $this->successNotify(__('site.branch_exported'));
-            return (new BranchsExport($this->search))->download('branch.' . $this->extension);
+            return (new BranchsExport($this->search))->download('branches.' . $this->extension);
         } catch (\Throwable $e) {
             $this->errorNotify($e->getMessage());
         }
