@@ -66,10 +66,82 @@
                             </td>
                             <td class="px-4 py-2 border">
                                 <div class="flex justify-center">
-                                    <button wire:click="sortByField('name')">
-                                        {{ __('site.name') }}
+                                    <button wire:click="sortByField('created_by')">
+                                        {{ __('site.created_by') }}
                                     </button>
-                                    <x-sort-icon sort_field="name" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                    <x-sort-icon sort_field="created_by" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('assigned_to')">
+                                        {{ __('site.assigned_to') }}
+                                    </button>
+                                    <x-sort-icon sort_field="assigned_to" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('problem_id')">
+                                        {{ __('site.problem_id') }}
+                                    </button>
+                                    <x-sort-icon sort_field="problem_id" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('sub_problem_id')">
+                                        {{ __('site.sub_problem_id') }}
+                                    </button>
+                                    <x-sort-icon sort_field="sub_problem_id" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('description')">
+                                        {{ __('site.description') }}
+                                    </button>
+                                    <x-sort-icon sort_field="description" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('file')">
+                                        {{ __('site.file') }}
+                                    </button>
+                                    <x-sort-icon sort_field="file" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('related_ticket')">
+                                        {{ __('site.related_ticket') }}
+                                    </button>
+                                    <x-sort-icon sort_field="related_ticket" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('forward_to')">
+                                        {{ __('site.forward_to') }}
+                                    </button>
+                                    <x-sort-icon sort_field="forward_to" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('notes')">
+                                        {{ __('site.notes') }}
+                                    </button>
+                                    <x-sort-icon sort_field="notes" :sort_by="$sort_by" :sort_asc="$sort_asc" />
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 border">
+                                <div class="flex justify-center">
+                                    <button wire:click="sortByField('ticket_status')">
+                                        {{ __('site.ticket_status') }}
+                                    </button>
+                                    <x-sort-icon sort_field="ticket_status" :sort_by="$sort_by" :sort_asc="$sort_asc" />
                                 </div>
                             </td>
                             <td class="px-4 py-2 border">
@@ -91,7 +163,34 @@
                                     {{ $ticket->id }}
                                 </td>
                                 <td class="p-2 border">
-                                    {{ $ticket->name }}
+                                    {{ $ticket->createdBy?->name }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->assignedTo?->name }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->problem?->name }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->subProblem?->name }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->description }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->file }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->related_ticket }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->forwardTo?->name }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->notes }}
+                                </td>
+                                <td class="p-2 border">
+                                    {{ $ticket->ticket_status }}
                                 </td>
                                 <td class="p-2 border">
                                     <div class="flex justify-center">

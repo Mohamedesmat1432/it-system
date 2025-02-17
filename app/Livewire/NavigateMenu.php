@@ -123,6 +123,12 @@ class NavigateMenu extends NavigationMenu
                 'icon' => 'user-group',
                 'role' => 'view-user-schema',
             ],
+            [
+                'name' => 'tickets',
+                'value' => 'site.tickets',
+                'icon' => 'user-group',
+                'role' => 'view-ticket',
+            ],
         ];
     }
 

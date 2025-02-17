@@ -17,6 +17,7 @@ use App\Livewire\SubProblem\ListSubProblem;
 use App\Livewire\Switch\ListSwitch;
 use App\Livewire\SwitchName\ListSwitchName;
 use App\Livewire\Telephone\ListTelephone;
+use App\Livewire\Ticket\ListTicket;
 use App\Livewire\User\ListUser;
 use App\Livewire\UserSchema\ListUserSchema;
 use Illuminate\Support\Facades\Route;
@@ -56,4 +57,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/user-schemas', ListUserSchema::class)->name('user.schemas');
     Route::get('/problems', ListProblem::class)->name('problems');
     Route::get('/sub-problems', ListSubProblem::class)->name('sub.problems');
+    Route::get('/tickets', ListTicket::class)->name('tickets');
 });

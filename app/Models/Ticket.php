@@ -15,16 +15,19 @@ class Ticket extends Model
 
     protected $fillable = [
         'created_by',
-        'send_to',
+        'assigned_to',
         'problem_id',
         'sub_problem_id',
         'description',
         'file',
-        'status',
+        'ticket_status',
+        'related_ticket',
+        'forward_to',
+        'notes',
     ];
 
     protected $casts = [
-        'status' => TicketStatus::class,
+        'ticket_status' => TicketStatus::class,
     ];
 
     public function problem()
@@ -42,9 +45,14 @@ class Ticket extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function sendTo()
+    public function assignedTo()
     {
-        return $this->belongsTo(User::class, 'send_to');
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function forwardTo()
+    {
+        return $this->belongsTo(User::class, 'forward_to');
     }
 
     public function scopeSearch($query, $search)

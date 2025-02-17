@@ -82,7 +82,12 @@ class User extends Authenticatable
 
     public function assignedTickets()
     {
-        return $this->hasMany(Ticket::class, 'send_to');
+        return $this->hasMany(Ticket::class, 'assigned_to');
+    }
+
+    public function forwardTickets()
+    {
+        return $this->hasMany(Ticket::class, 'forward_to');
     }
 
     public function scopeSearch($query, $search)
