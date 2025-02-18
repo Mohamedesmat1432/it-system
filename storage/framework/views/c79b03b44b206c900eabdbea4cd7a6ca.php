@@ -7,8 +7,14 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <link rel="icon" type="image/svg+xml" href="<?php echo e(asset('images/social_housing_logo.jpeg')); ?>">
     <title><?php echo e($title ?? 'Laravel'); ?></title>
+    <!-- Load Jquery -->
+    <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
 
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
+    <!-- Load Select2 -->
+    <link href="<?php echo e(asset('css/select2.min.css')); ?>" rel="stylesheet" />
+    <script src="<?php echo e(asset('js/select2.min.js')); ?>"></script>
+
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js']); ?>
 
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
 
@@ -45,11 +51,11 @@ if (isset($__slots)) unset($__slots);
 
         <!-- Page Heading -->
         <?php if(isset($header)): ?>
-        <header class="bg-white shadow border-b border-gray-100">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
-                <div><?php echo e($header); ?></div>
-            </div>
-        </header>
+            <header class="bg-white shadow border-b border-gray-100">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
+                    <div><?php echo e($header); ?></div>
+                </div>
+            </header>
         <?php endif; ?>
 
         <main>
@@ -87,4 +93,5 @@ if (isset($__slots)) unset($__slots);
     <?php echo $__env->yieldPushContent('scripts'); ?>
 </body>
 
-</html><?php /**PATH /var/www/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH /var/www/resources/views/layouts/app.blade.php ENDPATH**/ ?>

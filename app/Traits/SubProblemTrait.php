@@ -24,7 +24,7 @@ trait SubProblemTrait
 
     public function problems()
     {
-        return Problem::pluck('name','id')->toArray() ?? [];
+        return Problem::search($this->search)->pluck('name','id')->toArray() ?? [];
     }
 
     public function setSubProblem($id)

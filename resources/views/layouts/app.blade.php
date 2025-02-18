@@ -7,8 +7,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/social_housing_logo.jpeg') }}">
     <title>{{ $title ?? 'Laravel' }}</title>
+    <!-- Load Jquery -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 
-    @vite('resources/js/app.js')
+    <!-- Load Select2 -->
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+
+    @vite(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js'])
 
     @livewireStyles
 
@@ -29,11 +35,11 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-        <header class="bg-white shadow border-b border-gray-100">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
-                <div>{{ $header }}</div>
-            </div>
-        </header>
+            <header class="bg-white shadow border-b border-gray-100">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
+                    <div>{{ $header }}</div>
+                </div>
+            </header>
         @endif
 
         <main>
