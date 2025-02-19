@@ -38,6 +38,11 @@ trait TicketTrait
         ];
     }
 
+    public function updatedProblemId()
+    {
+        $this->subProblems();
+    }
+
     public function itUsers()
     {
         $department = Department::where('name', 'نظم المعلومات')->first();

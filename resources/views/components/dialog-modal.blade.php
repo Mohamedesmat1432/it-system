@@ -17,7 +17,7 @@
     </div>
 
     <div
-        class="flex px-6 py-4 bg-gray-100 text-right">
+        class="flex px-6 py-4 bg-gray-100 text-right rounded">
         {{ $footer }}
     </div>
     @if ($submit)

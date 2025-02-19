@@ -593,6 +593,8 @@ return [
     'sub_problem_exported' => 'تم تصدير المشكلات الفرعية بنجاح',
     'import_sub_problem' => 'استرداد المشكلات الفرعية',
     'sub_problem_imported' => 'تم استرداد المشكلات الفرعية بنجاح',
+    'telephone_id' => 'التليفون',
+    'select_telephone' => 'اختر التليفون',
     'floor' => 'الدور',
     'select_floor' => 'اختر الدور',
     'ip' => 'اي بي',

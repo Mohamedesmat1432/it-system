@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="<?php echo e(asset('images/social_housing_logo.jpeg')); ?>">
     <title><?php echo e($title ?? 'Laravel'); ?></title>
 
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js']); ?>
 
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
 
@@ -18,7 +18,8 @@
     <div x-data="{ loading: true }" x-init="setTimeout(() => loading = false, 500)">
         <div x-show="loading" class="fixed inset-0 flex items-center justify-center"
             style="background: rgba(129, 129, 129, 0.077)">
-            <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-t-blue-500 border-b-4 border-b-blue-500"></div>
+            <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-t-blue-500 border-b-4 border-b-blue-500">
+            </div>
         </div>
     </div>
     <div class="font-sans text-gray-900 antialiased">
@@ -49,4 +50,5 @@ if (isset($__slots)) unset($__slots);
 
 </body>
 
-</html><?php /**PATH /var/www/resources/views/layouts/guest.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH /var/www/resources/views/layouts/guest.blade.php ENDPATH**/ ?>

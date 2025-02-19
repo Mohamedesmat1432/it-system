@@ -574,6 +574,8 @@ return [
     'select_switch' => 'Select Switch',
     'select_switch' => 'Select Switch',
     'select_switch_name' => 'Select Switch Name',
+    'telephone_id' => 'Telephone',
+    'select_telephone' => 'Select Telephone',
     'floor' => 'Floor',
     'select_floor' => 'Select Floor',
     'ip' => 'Ip',

@@ -13166,3 +13166,18 @@ Did you mean one of these?
 #69 /var/www/public/index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #70 {main}
 "} 
+[2025-02-19 14:29:43] local.ERROR: There are no commands defined in the "optinize" namespace.
+
+Did you mean this?
+    optimize {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"optinize\" namespace.
+
+Did you mean this?
+    optimize at /home/system-engineering/Desktop/Projects/it-system/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /home/system-engineering/Desktop/Projects/it-system/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/system-engineering/Desktop/Projects/it-system/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/system-engineering/Desktop/Projects/it-system/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/system-engineering/Desktop/Projects/it-system/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/system-engineering/Desktop/Projects/it-system/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
