@@ -38,59 +38,26 @@
 <?php $component = $__componentOriginald8ba2b4c22a13c55321e34443c386276; ?>
 <?php unset($__componentOriginald8ba2b4c22a13c55321e34443c386276); ?>
 <?php endif; ?>
-                        <div id="parentProblem" class="relative mt-1" wire:ignore x-data="{ problem_id: <?php if ((object) ('problem_id') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('problem_id'->value()); ?>')<?php echo e('problem_id'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('problem_id'); ?>')<?php endif; ?> }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#problemId');
-                                    let parent = $('#parentProblem');
-                                    let placeholder = '<?php echo e(__('site.select_problem')); ?>';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        problem_id = $(this).val();
-                                    });
-                            
-                                    $watch('problem_id', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-                            <?php if (isset($component)) { $__componentOriginaled2cde6083938c436304f332ba96bb7c = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginaled2cde6083938c436304f332ba96bb7c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.select','data' => ['id' => 'problemId','class' => 'mt-1 block w-full','wire:model' => 'problem_id','wire:change' => 'subProblems']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('select'); ?>
+                        <?php if (isset($component)) { $__componentOriginal653f2348a1071331d92e461e24b234a3 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal653f2348a1071331d92e461e24b234a3 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.select-search','data' => ['class' => 'mt-1 block w-full','data' => $this->problems(),'placeholder' => __('site.select_problem'),'name' => 'problem_id','search' => 'search','selectedValue' => $problem_id,'wire:change' => 'subProblems']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('select-search'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'problemId','class' => 'mt-1 block w-full','wire:model' => 'problem_id','wire:change' => 'subProblems']); ?>
-                                <option value=""><?php echo e(__('site.select_problem')); ?></option>
-                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->problems(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
-                             <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes(['class' => 'mt-1 block w-full','data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($this->problems()),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('site.select_problem')),'name' => 'problem_id','search' => 'search','selected-value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($problem_id),'wire:change' => 'subProblems']); ?>
+<?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginaled2cde6083938c436304f332ba96bb7c)): ?>
-<?php $attributes = $__attributesOriginaled2cde6083938c436304f332ba96bb7c; ?>
-<?php unset($__attributesOriginaled2cde6083938c436304f332ba96bb7c); ?>
+<?php if (isset($__attributesOriginal653f2348a1071331d92e461e24b234a3)): ?>
+<?php $attributes = $__attributesOriginal653f2348a1071331d92e461e24b234a3; ?>
+<?php unset($__attributesOriginal653f2348a1071331d92e461e24b234a3); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginaled2cde6083938c436304f332ba96bb7c)): ?>
-<?php $component = $__componentOriginaled2cde6083938c436304f332ba96bb7c; ?>
-<?php unset($__componentOriginaled2cde6083938c436304f332ba96bb7c); ?>
+<?php if (isset($__componentOriginal653f2348a1071331d92e461e24b234a3)): ?>
+<?php $component = $__componentOriginal653f2348a1071331d92e461e24b234a3; ?>
+<?php unset($__componentOriginal653f2348a1071331d92e461e24b234a3); ?>
 <?php endif; ?>
-                        </div>
                         <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf94ed9c5393ef72725d159fe01139746 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-error','data' => ['for' => 'problem_id','class' => 'mt-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -133,59 +100,26 @@
 <?php $component = $__componentOriginald8ba2b4c22a13c55321e34443c386276; ?>
 <?php unset($__componentOriginald8ba2b4c22a13c55321e34443c386276); ?>
 <?php endif; ?>
-                        <div id="parentSubProblem" class="relative mt-1" wire:ignore x-data="{ sub_problem_id: <?php if ((object) ('sub_problem_id') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('sub_problem_id'->value()); ?>')<?php echo e('sub_problem_id'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('sub_problem_id'); ?>')<?php endif; ?> }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#subProblemId');
-                                    let parent = $('#parentSubProblem');
-                                    let placeholder = '<?php echo e(__('site.select_sub_problem')); ?>';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        sub_problem_id = $(this).val();
-                                    });
-                            
-                                    $watch('sub_problem_id', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-                            <?php if (isset($component)) { $__componentOriginaled2cde6083938c436304f332ba96bb7c = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginaled2cde6083938c436304f332ba96bb7c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.select','data' => ['id' => 'subProblemId','class' => 'mt-1 block w-full','wire:model' => 'sub_problem_id']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('select'); ?>
+                        <?php if (isset($component)) { $__componentOriginal653f2348a1071331d92e461e24b234a3 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal653f2348a1071331d92e461e24b234a3 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.select-search','data' => ['class' => 'mt-1 block w-full','data' => $this->subProblems(),'placeholder' => __('site.select_sub_problem'),'name' => 'sub_problem_id','search' => 'search','selectedValue' => $sub_problem_id,'wire:loading' => true,'wire:target' => 'subProblems']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('select-search'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'subProblemId','class' => 'mt-1 block w-full','wire:model' => 'sub_problem_id']); ?>
-                                <option value=""><?php echo e(__('site.select_sub_problem')); ?></option>
-                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $this->subProblems(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($key); ?>"><?php echo e($val); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
-                             <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes(['class' => 'mt-1 block w-full','data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($this->subProblems()),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('site.select_sub_problem')),'name' => 'sub_problem_id','search' => 'search','selected-value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($sub_problem_id),'wire:loading' => true,'wire:target' => 'subProblems']); ?>
+<?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginaled2cde6083938c436304f332ba96bb7c)): ?>
-<?php $attributes = $__attributesOriginaled2cde6083938c436304f332ba96bb7c; ?>
-<?php unset($__attributesOriginaled2cde6083938c436304f332ba96bb7c); ?>
+<?php if (isset($__attributesOriginal653f2348a1071331d92e461e24b234a3)): ?>
+<?php $attributes = $__attributesOriginal653f2348a1071331d92e461e24b234a3; ?>
+<?php unset($__attributesOriginal653f2348a1071331d92e461e24b234a3); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginaled2cde6083938c436304f332ba96bb7c)): ?>
-<?php $component = $__componentOriginaled2cde6083938c436304f332ba96bb7c; ?>
-<?php unset($__componentOriginaled2cde6083938c436304f332ba96bb7c); ?>
+<?php if (isset($__componentOriginal653f2348a1071331d92e461e24b234a3)): ?>
+<?php $component = $__componentOriginal653f2348a1071331d92e461e24b234a3; ?>
+<?php unset($__componentOriginal653f2348a1071331d92e461e24b234a3); ?>
 <?php endif; ?>
-                        </div>
                         <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf94ed9c5393ef72725d159fe01139746 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-error','data' => ['for' => 'sub_problem_id','class' => 'mt-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

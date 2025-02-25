@@ -45,7 +45,7 @@ trait UserSchemaTrait
             ? UserSchema::whereNot('user_id', $this->user_schema->user_id)->pluck('user_id')->toArray()
             : UserSchema::pluck('user_id')->toArray();
 
-        return User::whereNotIn('id', $userIds)->get() ?? [];
+        return User::whereNotIn('id', $userIds)->search($this->search)->pluck('name', 'id')->toArray();
     }
 
     public function patches()
@@ -54,7 +54,7 @@ trait UserSchemaTrait
             ? UserSchema::whereNot('patch_id', $this->user_schema->patch_id)->pluck('patch_id')->toArray()
             : UserSchema::pluck('patch_id')->toArray();
 
-        return Patch::whereNotIn('id', $patchIds)->get() ?? [];
+        return Patch::whereNotIn('id', $patchIds)->search($this->search)->pluck('port', 'id')->toArray();
     }
 
     public function ips()
@@ -63,7 +63,7 @@ trait UserSchemaTrait
             ? UserSchema::whereNot('ip_id', $this->user_schema->ip_id)->pluck('ip_id')->toArray()
             : UserSchema::pluck('ip_id')->toArray();
 
-        return Ip::whereNotIn('id', $ipIds)->get();
+        return Ip::whereNotIn('id', $ipIds)->search($this->search)->pluck('number', 'id')->toArray();
     }
 
     public function switchs()
@@ -72,27 +72,29 @@ trait UserSchemaTrait
             ? UserSchema::whereNot('switch_id', $this->user_schema->switch_id)->pluck('switch_id')->toArray()
             : UserSchema::pluck('switch_id')->toArray();
 
-        return SwitchData::whereNotIn('id', $switchIds)->get() ?? [];
+        return SwitchData::whereNotIn('id', $switchIds)->search($this->search)
+            ->with('switchName')->get()
+            ->pluck('port_name', 'id')->toArray();
     }
 
     public function branches()
     {
-        return Branch::pluck('name', 'id')->toArray() ?? [];
+        return Branch::search($this->search)->pluck('name', 'id')->toArray();
     }
 
     public function racks()
     {
-        return Rack::pluck('name', 'id')->toArray() ?? [];
+        return Rack::search($this->search)->pluck('name', 'id')->toArray();
     }
 
     public function subnets()
     {
-        return Subnet::pluck('name', 'id')->toArray() ?? [];
+        return Subnet::search($this->search)->pluck('name', 'id')->toArray();
     }
 
     public function telephones()
     {
-        return Telephone::pluck('name', 'id')->toArray() ?? [];
+        return Telephone::search($this->search)->pluck('name', 'id')->toArray();
     }
 
     public function floors()

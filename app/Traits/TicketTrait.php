@@ -20,7 +20,7 @@ trait TicketTrait
 
     public $ticket_id, $created_by, $assigned_to, $problem_id,
         $sub_problem_id, $description, $file, $old_file, $ticket_status,
-        $related_ticket, $forward_to, $notes;
+        $related_ticket, $forward_to, $notes, $searchProblem = '';
 
     protected function rules()
     {
@@ -38,11 +38,6 @@ trait TicketTrait
         ];
     }
 
-    public function updatedProblemId()
-    {
-        $this->subProblems();
-    }
-
     public function itUsers()
     {
         $department = Department::where('name', 'نظم المعلومات')->first();
@@ -53,12 +48,15 @@ trait TicketTrait
 
     public function problems()
     {
-        return Problem::pluck('name', 'id')->toArray();
+        return Problem::search($this->search)
+            ->pluck('name', 'id')->toArray();
     }
 
     public function subProblems()
     {
-        return SubProblem::where('problem_id', $this->problem_id)->pluck('name', 'id')->toArray();
+        return SubProblem::search($this->search)
+            ->where('problem_id', $this->problem_id)
+            ->pluck('name', 'id')->toArray();
     }
 
     public function setTicket($id)

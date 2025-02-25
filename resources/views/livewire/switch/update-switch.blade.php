@@ -9,42 +9,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="mt-2">
                         <x-label for="switch_name_id" value="{{ __('site.switch_name_id') }}" />
-                        <div id="parentSwitchName" class="relative mt-1" wire:ignore x-data="{ switch_name_id: @entangle('switch_name_id') }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#switchNameId');
-                                    let parent = $('#parentSwitchName');
-                                    let placeholder = '{{ __('site.select_switch_name') }}';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        switch_name_id = $(this).val();
-                                    });
-                            
-                                    $watch('switch_name_id', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-
-                            <select id="switchNameId" class="mt-1 block w-full" wire:model="switch_name_id">
-                                <option value="">{{ __('site.select_switch_name') }}</option>
-                                @foreach ($this->switchNames() as $key => $val)
-                                    <option value="{{ $key }}">{{ $val }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <x-select-search class="mt-1 block w-full" :data="$this->switchNames()" :placeholder="__('site.select_switch_name')"
+                            name="switch_name_id" search="search" :selected-value="$switch_name_id" />
                         <x-input-error for="switch_name_id" class="mt-2" />
                     </div>
                     <div class="mt-2">

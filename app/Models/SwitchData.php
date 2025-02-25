@@ -27,13 +27,17 @@ class SwitchData extends Model
         return $this->belongsTo(SwitchName::class, 'switch_name_id');
     }
 
+    public function getPortNameAttribute()
+    {
+        return $this->switchName->name . ' - ' . $this->port;
+    }
+
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query) use ($search) {
-            $query->where('port', 'like', "%{$search}%")
-                ->whereHas('switchName', function ($query) use ($search) {
-                    $query->where('name', 'like', "%{$search}%");
-                });
+            $query->whereHas('switchName', function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })->orWhere('port', 'like', "%{$search}%");
         });
     }
 }

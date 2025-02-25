@@ -9,81 +9,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="mt-2">
                         <x-label for="problem_id" value="{{ __('site.problem_id') }}" />
-                        <div id="parentProblem" class="relative mt-1" wire:ignore x-data="{ problem_id: @entangle('problem_id') }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#problemId');
-                                    let parent = $('#parentProblem');
-                                    let placeholder = '{{ __('site.select_problem') }}';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        problem_id = $(this).val();
-                                    });
-                            
-                                    $watch('problem_id', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-                            <x-select id="problemId" class="mt-1 block w-full" wire:model="problem_id"
-                                wire:change="subProblems">
-                                <option value="">{{ __('site.select_problem') }}</option>
-                                @foreach ($this->problems() as $key => $val)
-                                    <option value="{{ $key }}">{{ $val }}</option>
-                                @endforeach
-                            </x-select>
-                        </div>
+                        <x-select-search class="mt-1 block w-full" :data="$this->problems()" :placeholder="__('site.select_problem')" name="problem_id"
+                            search="search" :selected-value="$problem_id" wire:change="subProblems" />
                         <x-input-error for="problem_id" class="mt-2" />
                     </div>
                     <div class="mt-2">
                         <x-label for="sub_problem_id" value="{{ __('site.sub_problem_id') }}" />
-                        <div id="parentSubProblem" class="relative mt-1" wire:ignore x-data="{ sub_problem_id: @entangle('sub_problem_id') }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#subProblemId');
-                                    let parent = $('#parentSubProblem');
-                                    let placeholder = '{{ __('site.select_sub_problem') }}';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        sub_problem_id = $(this).val();
-                                    });
-                            
-                                    $watch('sub_problem_id', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-                            <x-select id="subProblemId" class="mt-1 block w-full" wire:model="sub_problem_id">
-                                <option value="">{{ __('site.select_sub_problem') }}</option>
-                                @foreach ($this->subProblems() as $key => $val)
-                                    <option value="{{ $key }}">{{ $val }}</option>
-                                @endforeach
-                            </x-select>
-                        </div>
+                        <x-select-search class="mt-1 block w-full" :data="$this->subProblems()" :placeholder="__('site.select_sub_problem')"
+                            name="sub_problem_id" search="search" :selected-value="$sub_problem_id" wire:loading
+                            wire:target="subProblems" />
                         <x-input-error for="sub_problem_id" class="mt-2" />
                     </div>
                 </div>
