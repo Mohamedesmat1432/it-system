@@ -1,6 +1,6 @@
 @props(['data' => [], 'name' => '', 'placeholder' => '', 'search' => '', 'selectedValue' => null])
 
-<div class="relative w-full" x-data="{
+<div class="relative w-full mt-1" x-data="{
     open: false,
     selected: @js(array_key_exists($selectedValue, $data) ? $data[$selectedValue] : ''),
     selectValue(value, key) {
@@ -22,20 +22,20 @@
     </div>
 
     <!-- Dropdown List -->
-    <div x-show="open" @click.away="open = false" x-transition
+    <ul x-show="open" aria-hidden="!open" @click.away="open = false" x-transition
         class="absolute z-10 bg-white border border-gray-300 w-full mt-1 rounded-md shadow-md max-h-48 overflow-auto">
 
         <!-- Search Input -->
-        <input type="text" placeholder="{{ __('site.search') }}" class="w-full px-3 py-2 border-b focus:outline-none"
-            wire:model.live="{{ $search }}" @click.stop
-            @keydown.escape.window="open = false">
+        <input type="text" placeholder="{{ __('site.search') }}"
+            class="w-full px-3 py-2 border-b focus:outline-none rounded"
+            wire:model.live.debounce.300ms="{{ $search }}" @click.stop @keydown.escape.window="open = false">
 
         <!-- Options -->
         @foreach ($data as $key => $val)
-            <div @click="selectValue('{{ $val }}', '{{ $key }}')"
+            <li @click="selectValue('{{ $val }}', '{{ $key }}')"
                 class="px-4 py-2 cursor-pointer hover:bg-blue-100 {{ $selectedValue == (string) $key ? 'bg-blue-500 text-white' : '' }}">
                 <span>{{ $val }}</span>
-            </div>
+            </li>
         @endforeach
-    </div>
+    </ul>
 </div>

@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/social_housing_logo.jpeg') }}">
     <title>{{ $title ?? 'Laravel' }}</title>
 
-    @vite(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js'])
+    @vite('resources/js/app.js')
 
     @livewireStyles
 </head>

@@ -26,7 +26,7 @@ return [
     'price' => 'Price',
     'status' => 'Status',
     'active' => 'Active',
-    'not_active' => 'Inactive',
+    'inactive' => 'Inactive',
     'discount' => 'Discount',
     'total' => 'Total',
     'serial' => 'Serial',
@@ -586,4 +586,7 @@ return [
     'file' => 'File',
     'related_ticket' => 'Related Ticket',
     'forward_to' => 'Forward To',
+    'open' => 'Open',
+    'inprogress' => 'InProgress',
+    'closed' => 'Closed',
 ];

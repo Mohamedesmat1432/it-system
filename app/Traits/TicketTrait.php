@@ -25,15 +25,14 @@ trait TicketTrait
     protected function rules()
     {
         return [
-            'created_by' => 'nullable|string|exists:users,id',
-            'assigned_to' => 'nullable|string|exists:users,id',
+            'created_by' => 'nullable|numeric|exists:users,id',
+            'assigned_to' => 'nullable|numeric|exists:users,id',
             'problem_id' => 'required|string|exists:problems,id',
             'sub_problem_id' => 'required|string|exists:sub_problems,id',
             'description' => 'nullable|string',
             'file' => 'nullable|mimes:pdf,jpeg,png,jpg,gif|max:10240',
             'ticket_status'  => 'nullable|in:' . TicketStatus::Open->value . ',' . TicketStatus::InProgress->value . ',' . TicketStatus::Closed->value,
-            'related_ticket' => 'nullable|string',
-            'forward_to' => 'nullable|string|exists:users,id',
+            'forward_to' => 'nullable|numeric|exists:users,id',
             'notes' => 'nullable|string',
         ];
     }
@@ -70,8 +69,6 @@ trait TicketTrait
         $this->description = $this->ticket->description;
         $this->old_file = $this->ticket->file;
         $this->ticket_status = $this->ticket->ticket_status->value;
-        $this->related_ticket = $this->ticket->related_ticket;
-        $this->forward_to = $this->ticket->forward_to;
         $this->notes = $this->ticket->notes;
     }
 

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name')->unique();
             $table->uuid('problem_id')->nullable();
-            $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
             $table->timestamps();
+            $table->foreign('problem_id')->references('id')->on('problems')->onDelete('cascade');
         });
     }
 

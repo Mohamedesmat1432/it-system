@@ -8,13 +8,13 @@
     <link rel="icon" type="image/svg+xml" href="<?php echo e(asset('images/social_housing_logo.jpeg')); ?>">
     <title><?php echo e($title ?? 'Laravel'); ?></title>
     <!-- Load Jquery -->
-    <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
-
+    
     <!-- Load Select2 -->
     <link href="<?php echo e(asset('css/select2.min.css')); ?>" rel="stylesheet" />
+    <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/select2.min.js')); ?>"></script>
 
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js']); ?>
+    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
 
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
 

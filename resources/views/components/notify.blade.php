@@ -8,7 +8,7 @@
     position: 'right', 
     stopOnFocus: true,
     style: {
-      background: ($event.detail.style === 'success') ? 'bg-indigo-600' : 'bg-red-600',
+      background: $event.detail.style,
       borderRaduis:'5px',
     },
   }).showToast();">

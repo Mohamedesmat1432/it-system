@@ -20,6 +20,12 @@
                             wire:target="subProblems" />
                         <x-input-error for="sub_problem_id" class="mt-2" />
                     </div>
+                    <div class="mt-2">
+                        <x-label for="assigned_to" value="{{ __('site.assigned_to') }}" />
+                        <x-select-search class="mt-1 block w-full" :data="$this->itUsers()" :placeholder="__('site.select_user')"
+                            name="assigned_to" search="search" :selected-value="$assigned_to" />
+                        <x-input-error for="assigned_to" class="mt-2" />
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
                     <div class="mt-2">

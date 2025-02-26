@@ -8,13 +8,13 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/social_housing_logo.jpeg') }}">
     <title>{{ $title ?? 'Laravel' }}</title>
     <!-- Load Jquery -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-
+    
     <!-- Load Select2 -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
 
-    @vite(['resources/css/app.css', 'resources/css/site.css', 'resources/js/app.js'])
+    @vite('resources/js/app.js')
 
     @livewireStyles
 

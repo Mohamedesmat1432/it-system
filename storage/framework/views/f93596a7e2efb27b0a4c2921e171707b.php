@@ -12,7 +12,7 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<div class="relative w-full" x-data="{
+<div class="relative w-full mt-1" x-data="{
     open: false,
     selected: <?php echo \Illuminate\Support\Js::from(array_key_exists($selectedValue, $data) ? $data[$selectedValue] : '')->toHtml() ?>,
     selectValue(value, key) {
@@ -34,21 +34,21 @@
     </div>
 
     <!-- Dropdown List -->
-    <div x-show="open" @click.away="open = false" x-transition
+    <ul x-show="open" aria-hidden="!open" @click.away="open = false" x-transition
         class="absolute z-10 bg-white border border-gray-300 w-full mt-1 rounded-md shadow-md max-h-48 overflow-auto">
 
         <!-- Search Input -->
-        <input type="text" placeholder="<?php echo e(__('site.search')); ?>" class="w-full px-3 py-2 border-b focus:outline-none"
-            wire:model.live="<?php echo e($search); ?>" @click.stop
-            @keydown.escape.window="open = false">
+        <input type="text" placeholder="<?php echo e(__('site.search')); ?>"
+            class="w-full px-3 py-2 border-b focus:outline-none rounded"
+            wire:model.live.debounce.300ms="<?php echo e($search); ?>" @click.stop @keydown.escape.window="open = false">
 
         <!-- Options -->
         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div @click="selectValue('<?php echo e($val); ?>', '<?php echo e($key); ?>')"
+            <li @click="selectValue('<?php echo e($val); ?>', '<?php echo e($key); ?>')"
                 class="px-4 py-2 cursor-pointer hover:bg-blue-100 <?php echo e($selectedValue == (string) $key ? 'bg-blue-500 text-white' : ''); ?>">
                 <span><?php echo e($val); ?></span>
-            </div>
+            </li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
-    </div>
+    </ul>
 </div>
 <?php /**PATH /var/www/resources/views/components/select-search.blade.php ENDPATH**/ ?>

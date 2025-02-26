@@ -26,7 +26,7 @@ return [
     'price' => 'السعر',
     'status' => 'الحالة',
     'active' => 'فعال',
-    'not_active' => 'غير فعال',
+    'inactive' => 'غير فعال',
     'total' => 'الاجمالي',
     'are_you_sure_to_want_delete' => 'هل انت متأكد من حذف ',
     'create_new_user' => 'انشاء مستخدم جديد',
@@ -605,4 +605,7 @@ return [
     'file' => 'الملف',
     'related_ticket' => 'مربوط بالتكت',
     'forward_to' => 'موجه الي',
+    'open' => 'مفتوح',
+    'inprogress' => 'جاري المعالجة',
+    'closed' => 'مغلق',
 ];

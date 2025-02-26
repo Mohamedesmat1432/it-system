@@ -476,62 +476,6 @@ if (isset($__slots)) unset($__slots);
                             </td>
                             <td class="px-4 py-2 border">
                                 <div class="flex justify-center">
-                                    <button wire:click="sortByField('related_ticket')">
-                                        <?php echo e(__('site.related_ticket')); ?>
-
-                                    </button>
-                                    <?php if (isset($component)) { $__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.sort-icon','data' => ['sortField' => 'related_ticket','sortBy' => $sort_by,'sortAsc' => $sort_asc]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('sort-icon'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['sort_field' => 'related_ticket','sort_by' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($sort_by),'sort_asc' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($sort_asc)]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e)): ?>
-<?php $attributes = $__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e; ?>
-<?php unset($__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e)): ?>
-<?php $component = $__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e; ?>
-<?php unset($__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e); ?>
-<?php endif; ?>
-                                </div>
-                            </td>
-                            <td class="px-4 py-2 border">
-                                <div class="flex justify-center">
-                                    <button wire:click="sortByField('forward_to')">
-                                        <?php echo e(__('site.forward_to')); ?>
-
-                                    </button>
-                                    <?php if (isset($component)) { $__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.sort-icon','data' => ['sortField' => 'forward_to','sortBy' => $sort_by,'sortAsc' => $sort_asc]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('sort-icon'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['sort_field' => 'forward_to','sort_by' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($sort_by),'sort_asc' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($sort_asc)]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e)): ?>
-<?php $attributes = $__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e; ?>
-<?php unset($__attributesOriginalee2a861ad7afb8a8513aaf5b4abcef1e); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e)): ?>
-<?php $component = $__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e; ?>
-<?php unset($__componentOriginalee2a861ad7afb8a8513aaf5b4abcef1e); ?>
-<?php endif; ?>
-                                </div>
-                            </td>
-                            <td class="px-4 py-2 border">
-                                <div class="flex justify-center">
                                     <button wire:click="sortByField('notes')">
                                         <?php echo e(__('site.notes')); ?>
 
@@ -650,20 +594,14 @@ if (isset($__slots)) unset($__slots);
 
                                 </td>
                                 <td class="p-2 border">
-                                    <?php echo e($ticket->related_ticket); ?>
-
-                                </td>
-                                <td class="p-2 border">
-                                    <?php echo e($ticket->forwardTo?->name); ?>
-
-                                </td>
-                                <td class="p-2 border">
                                     <?php echo e($ticket->notes); ?>
 
                                 </td>
                                 <td class="p-2 border">
-                                    <?php echo e($ticket->ticket_status); ?>
+                                    <span class="<?php echo e($ticket->ticket_status->color()); ?> px-2 py-1 rounded-full text-white">
+                                        <?php echo e($ticket->ticket_status->label()); ?>
 
+                                    </span>
                                 </td>
                                 <td class="p-2 border">
                                     <div class="flex justify-center">

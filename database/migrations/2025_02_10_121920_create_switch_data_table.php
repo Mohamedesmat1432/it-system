@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('port');
             $table->uuid('switch_name_id')->nullable();
-            $table->foreign('switch_name_id')->references('id')->on('switch_names')->onDelete('cascade');
             $table->timestamps();
+            $table->foreign('switch_name_id')->references('id')->on('switch_names')->onDelete('cascade');
         });
     }
 

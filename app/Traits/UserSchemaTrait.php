@@ -99,7 +99,7 @@ trait UserSchemaTrait
 
     public function floors()
     {
-        return Floor::cases() ?? [];
+        return collect(Floor::cases())->mapWithKeys(fn($case) => [$case->value => $case->name])->toArray();
     }
 
     public function setUserSchema($id)

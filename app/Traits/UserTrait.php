@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Enums\UserStatus;
 use App\Models\Department;
 use App\Models\Role;
 use App\Models\User;
@@ -27,7 +28,7 @@ trait UserTrait
             'name' => 'required|string|min:4',
             'email' => 'required|string|email|max:255|unique:users,email,' . $this->user_id,
             'role' => 'nullable|exists:roles,id',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean:in:' . UserStatus::Active->value .',' . UserStatus::Inactive->value,
             'department_id' => 'required|string|exists:departments,id',
         ];
 
@@ -58,7 +59,7 @@ trait UserTrait
         $this->user_id = $this->user->id;
         $this->name = $this->user->name;
         $this->email = $this->user->email;
-        $this->status = $this->user->status;
+        $this->status = $this->user->status->value;
         $this->role = $this->user->roles->pluck('id');
         $this->department_id = $this->user->department->id ?? '';
     }

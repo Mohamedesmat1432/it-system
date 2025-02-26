@@ -114,22 +114,6 @@
                             </td>
                             <td class="px-4 py-2 border">
                                 <div class="flex justify-center">
-                                    <button wire:click="sortByField('related_ticket')">
-                                        {{ __('site.related_ticket') }}
-                                    </button>
-                                    <x-sort-icon sort_field="related_ticket" :sort_by="$sort_by" :sort_asc="$sort_asc" />
-                                </div>
-                            </td>
-                            <td class="px-4 py-2 border">
-                                <div class="flex justify-center">
-                                    <button wire:click="sortByField('forward_to')">
-                                        {{ __('site.forward_to') }}
-                                    </button>
-                                    <x-sort-icon sort_field="forward_to" :sort_by="$sort_by" :sort_asc="$sort_asc" />
-                                </div>
-                            </td>
-                            <td class="px-4 py-2 border">
-                                <div class="flex justify-center">
                                     <button wire:click="sortByField('notes')">
                                         {{ __('site.notes') }}
                                     </button>
@@ -181,16 +165,12 @@
                                     {{ $ticket->file }}
                                 </td>
                                 <td class="p-2 border">
-                                    {{ $ticket->related_ticket }}
-                                </td>
-                                <td class="p-2 border">
-                                    {{ $ticket->forwardTo?->name }}
-                                </td>
-                                <td class="p-2 border">
                                     {{ $ticket->notes }}
                                 </td>
                                 <td class="p-2 border">
-                                    {{ $ticket->ticket_status }}
+                                    <span class="{{ $ticket->ticket_status->color() }} px-2 py-1 rounded-full text-white">
+                                        {{ $ticket->ticket_status->label() }}
+                                    </span>
                                 </td>
                                 <td class="p-2 border">
                                     <div class="flex justify-center">

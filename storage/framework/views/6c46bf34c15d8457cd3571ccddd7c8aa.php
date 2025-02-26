@@ -11,7 +11,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['wire:model' => 'delete_modal','submit' => 'delete','method' => 'DELETE']); ?>
              <?php $__env->slot('title', null, []); ?> 
-                <?php echo e(__('site.delete_user_schema')); ?>
+                <?php echo e(__('site.delete_user')); ?>
 
              <?php $__env->endSlot(); ?>
 
@@ -30,7 +30,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['type' => 'submit','wire:loading.attr' => 'disabled']); ?>
-                    <?php echo e(__('site.delete_user_schema')); ?>
+                    <?php echo e(__('site.delete_user')); ?>
 
                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -77,4 +77,4 @@
 <?php endif; ?>
     <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 </div>
-<?php /**PATH /var/www/resources/views/livewire/user-schema/delete-user-schema.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/resources/views/livewire/user/delete-user.blade.php ENDPATH**/ ?>

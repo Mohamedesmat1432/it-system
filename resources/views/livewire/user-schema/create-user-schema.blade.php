@@ -21,41 +21,8 @@
                     </div>
                     <div class="mt-2">
                         <x-label for="floor" value="{{ __('site.floor') }}" />
-                        <div id="parentFloor" class="relative mt-1" wire:ignore x-data="{ floor: @entangle('floor') }"
-                            x-init="() => {
-                                $nextTick(() => {
-                                    let select = $('#floorId');
-                                    let parent = $('#parentFloor');
-                                    let placeholder = '{{ __('site.select_floor') }}';
-                            
-                                    if (select.data('select2')) {
-                                        select.select2('destroy');
-                                    }
-                            
-                                    select.select2({
-                                        tags: true,
-                                        dropdownParent: parent,
-                                        placeholder: placeholder,
-                                        allowClear: true,
-                                        minimumResultsForSearch: 0
-                                    });
-                            
-                                    select.on('change', function() {
-                                        floor = $(this).val();
-                                    });
-                            
-                                    $watch('floor', (value) => {
-                                        select.val(value).trigger('change');
-                                    });
-                                });
-                            }">
-                            <x-select id="floorId" class="mt-1 block w-full" wire:model="floor">
-                                <option value="">{{ __('site.select_floor') }}</option>
-                                @foreach ($this->floors() as $floor)
-                                    <option value="{{ $floor->value }}">{{ $floor->value }}</option>
-                                @endforeach
-                            </x-select>
-                        </div>
+                        <x-select-search class="mt-1 block w-full" :data="$this->floors()" :placeholder="__('site.select_floor')" name="floor"
+                            search="search" :selected-value="$floor" />
                         <x-input-error for="floor" class="mt-2" />
                     </div>
                     <div class="mt-2">

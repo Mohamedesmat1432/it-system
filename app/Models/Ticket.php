@@ -21,8 +21,6 @@ class Ticket extends Model
         'description',
         'file',
         'ticket_status',
-        'related_ticket',
-        'forward_to',
         'notes',
     ];
 
@@ -48,11 +46,6 @@ class Ticket extends Model
     public function assignedTo()
     {
         return $this->belongsTo(User::class, 'assigned_to');
-    }
-
-    public function forwardTo()
-    {
-        return $this->belongsTo(User::class, 'forward_to');
     }
 
     public function scopeSearch($query, $search)

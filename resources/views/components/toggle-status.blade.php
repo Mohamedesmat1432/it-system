@@ -1,5 +1,5 @@
+@props(['status'])
 <div>
-    @props(['status'])
     <label for="toggle" class="flex items-center cursor-pointer">
         <!-- The toggle switch -->
         <div class="relative">
@@ -10,14 +10,8 @@
             </div>
         </div>
         <!-- Status Text -->
-        @if ($status)
-        <span class="mx-2 text-sm text-green-500">
-            {{ __('site.active') }}
+        <span class="mx-2 text-sm {{ $status ? 'text-green-500' : 'text-red-500' }}">
+            {{ $status ? __('site.active') : __('site.inactive') }}
         </span>
-        @else
-        <span class="mx-2 text-sm text-red-500">
-            {{ __('site.not_active') }}
-        </span>
-        @endif
     </label>
 </div>

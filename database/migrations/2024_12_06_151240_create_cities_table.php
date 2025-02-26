@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('government_id')->nullable();
-            $table->foreign('government_id')->references('id')->on('governments')->onDelete('cascade');
             $table->string('name_ar');
             $table->string('name_en');
             $table->timestamps();
+            $table->foreign('government_id')->references('id')->on('governments')->onDelete('cascade');
         });
     }
 

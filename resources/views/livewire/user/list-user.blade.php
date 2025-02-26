@@ -158,20 +158,14 @@
                                 </td>
                                 <td class="p-2 border">
                                     {{ $user->department?->name }}
-                                </td>    
+                                </td>
                                 <td class="p-2 border">
                                     {{ $user->getRoleNames()[0] }}
                                 </td>
                                 <td class="p-2 border">
-                                    @if ($user->status)
-                                        <span class="p-2 bg-green-500 rounded-full text-white">
-                                            {{ __('site.active') }}
-                                        </span>
-                                    @else
-                                        <span class="p-2 bg-red-500 rounded-full text-white">
-                                            {{ __('site.not_active') }}
-                                        </span>
-                                    @endif
+                                    <span class="{{ $user->status->color() }} px-2 py-1 rounded-full text-white">
+                                        {{ $user->status->label() }}
+                                    </span>
                                 </td>
                                 @if ($this->trash)
                                     <td class="p-2 border">
